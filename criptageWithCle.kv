@@ -1,0 +1,56 @@
+
+
+<CrypteurWithKeyPage>:
+    
+    Image:
+        source:"image/bg5.jpg"
+        size:root.size
+    BoxLayout:
+    
+        orientation:'vertical'
+        size:root.size
+        pos: root.width/2 - 175,root.height/2 -100
+        
+        Label:
+            canvas.before:
+                Color:
+                    rgb:(0,0,1)
+                Rectangle:
+                    pos:self.pos
+                    size:self.size
+            size_hint:None,None
+            height:50
+            width:350
+            text:root.text_label 
+            color:(1,.5,1,1)
+            font_name: 'fonts/Lcd.ttf'
+            font_size: 30
+            
+        TextInput:
+            id:cle
+            size_hint: None,None 
+            width:350
+            height:50
+            hint_text:"Donner votre clé"
+            
+        TextInput:
+            id:text
+            size_hint: None,None 
+            width:350
+            height:50
+            hint_text:"Donner votre chaine a crypter"
+
+        Button:
+            text:'Crypter'
+            on_press: root.crypter(cle.text,text.text)
+            size_hint: None,None 
+            width:350
+            height:30
+        Button:
+            text:'DeCrypter'
+            on_press: root.decrypter(cle.text,text.text)
+            size_hint: None,None 
+            width:350
+            height:30 
+                 
+        
